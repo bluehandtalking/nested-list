@@ -1,9 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @artist.name %>
+  <h2>Name:
+    <%= @artist.name %>&nbsp;&nbsp;&nbsp;&nbsp;<span style=font-size:16px><%= link_to 'Edit', edit_artist_path(@artist) %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Back', artists_path %></span></h2> 
 </p>
+<h2>Tunes  <%= link_to "New", new_artist_tune_path(@artist) %></h2>
+<p>
 
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
+<table>
+<% @tunes.each do |tune| %>
+    <tr>
+    	<td class="tune">
+    	    <%=  tune.name %>
+    	</td>
+    </tr>
+  <% end %>
+</table>
+</p>

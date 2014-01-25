@@ -1,4 +1,4 @@
-<%= form_for(@tune) do |f| %>
+<%= form_for(  [ @artist, @tune ]  ) do |f| %>
   <% if @tune.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@tune.errors.count, "error") %> prohibited this tune from being saved:</h2>

@@ -11,12 +11,12 @@
   </thead>
 
   <tbody>
-    <% @tunes.each do |tune| %>
+    <% @artist.tunes.each do |tune| %>
       <tr>
         <td><%= tune.name %></td>
-        <td><%= link_to 'Show', tune %></td>
-        <td><%= link_to 'Edit', edit_artist_tune_path(tune) %></td>
-        <td><%= link_to 'Destroy', tune, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', artist_tune_path(@artist, tune) %></td>
+        <td><%= link_to 'Edit', edit_artist_tune_path(@artist, tune) %></td>
+        <td><%= link_to 'Destroy', [@artist, tune ], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

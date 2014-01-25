@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  README
 ================
 
@@ -9,3 +10,9 @@ Testing nested routes
 
 > SQLite
 
+=======
+nested-list
+===========
+
+Testing nested resource. Somes basic styling added, 
+and test expanded to display artist tunes on artist show page.

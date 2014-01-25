@@ -1,34 +1,43 @@
 class TunesController < ApplicationController
-  before_action :set_tune, only: [:show, :edit, :update, :destroy]
+  before_action :set_tune, only: [:show, :edit, :create, :update, :destroy, :new]
 
   # GET /tunes
   # GET /tunes.json
   def index
-    @tunes = Tune.all
+    set_artist
+    # @artist = Artist.find(params[:artist_id])
+    @tunes = @artist.tunes.all
   end
 
   # GET /tunes/1
   # GET /tunes/1.json
   def show
+    set_tune
   end
 
   # GET /tunes/new
   def new
-    @tune = Tune.new
+    set_artist
+    @tune = @artist.tunes.build
   end
-
-  # GET /tunes/1/edit
   def edit
+    @artist = Artist.find(params[:artist_id])
+    @tune = @artist.tunes.find(params[:id])
+    @tune.name = params[:name]
+    @tune.save
   end
 
   # POST /tunes
   # POST /tunes.json
   def create
-    @tune = Tune.new(tune_params)
+    # set_tune
+    set_artist
+    # @tune = @artist.tunes.build(params[:tune])
+    @tune = @artist.tunes.build(tune_params)
 
     respond_to do |format|
       if @tune.save
-        format.html { redirect_to @tune, notice: 'Tune was successfully created.' }
+        format.html { redirect_to [@artist, @tune], notice: 'Tune was successfully created.' }
         format.json { render action: 'show', status: :created, location: @tune }
       else
         format.html { render action: 'new' }
@@ -42,7 +51,7 @@ class TunesController < ApplicationController
   def update
     respond_to do |format|
       if @tune.update(tune_params)
-        format.html { redirect_to @tune, notice: 'Tune was successfully updated.' }
+        format.html { redirect_to [@artist, @tune ], notice: 'Tune was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -64,9 +73,15 @@ class TunesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tune
-      @tune = Tune.find(params[:id])
+      unless params[:id].present? 
+        @tune = Tune.new
+      else
+        @tune = Tune.find(params[:id])
+      end
     end
-
+    def set_artist
+      @artist = Artist.find(params[:artist_id])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def tune_params
       params.require(:tune).permit(:name)

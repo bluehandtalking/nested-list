@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+app/**/*.swp
+app/controllers/.*swp
+app/controllers/.application_controller.rb.swp
+pp/controllers/.artists_controller.rb.swp
+app/views/tunes/*.swp
+config/*.swp

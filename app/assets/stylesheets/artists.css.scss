@@ -1,3 +1,38 @@
 // Place all the styles related to the Artists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+td.artist {
+    font-size: 28px;
+    padding: 32px 32px;
+}
+
+td.link {
+    font-size: 18px;
+    font-color: "blue";
+}
+h1 {
+    font-size: 38px;
+ }
+h2 {
+    font-size: 2.0em;
+    font-size: 2.0rem}
+a {
+    font-size: 22.4px;
+    font-size: 1.4rem; 
+    font-weight: bold;
+}
+a:hover {
+    color: #1BC21B; 
+    background-color: #FFF;
+ }
+a:visited {
+   color: #1BC21B; 
+}
+a:link {
+    color: #1BC21B;
+}
+p.tune-show {
+    font-size: 22.4px;
+    font-size: 1.4rem;
+}
