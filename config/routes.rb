@@ -1,4 +1,7 @@
 NestedList::Application.routes.draw do
+
+  root to: 'artists#index'
+
   resources :artists do
     resources :tunes
   end
