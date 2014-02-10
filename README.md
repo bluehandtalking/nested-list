@@ -1,4 +1,3 @@
-<<<<<<< HEAD
  README
 ================
 
@@ -16,3 +15,5 @@ nested-list
 
 Testing nested resource. Somes basic styling added, 
 and test expanded to display artist tunes on artist show page.
+
+*  Used the great 'better-errors' gem for test environment
